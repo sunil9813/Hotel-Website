@@ -41,23 +41,27 @@
     </div>
   </header>
   <script>
-    const hambuger = document.querySelector('.hambuger');
-    const navMenu = document.querySelector('.nav-menu');
+  // Select DOM elements
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
 
-    hambuger.addEventListener("click", mobileMenu);
+// Toggle mobile menu
+const toggleMenu = () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+};
 
-    function mobileMenu() {
-      hambuger.classList.toggle("active");
-      navMenu.classList.toggle("active");
-    }
+// Close mobile menu
+const closeMenu = () => {
+  hamburger.classList.remove('active');
+  navMenu.classList.remove('active');
+};
 
-    const navLink = document.querySelectorAll('.nav-link');
-    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+// Event listeners
+hamburger.addEventListener('click', toggleMenu);
+navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    function closeMenu() {
-      hambuger.classList.remove("active");
-      navMenu.classList.remove("active");
-    }
   </script>
 
   <section class="home" id="home">
